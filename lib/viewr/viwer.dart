@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:interview_task/controller/controller.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class second extends StatefulWidget {
   const second({super.key});
@@ -10,6 +12,8 @@ class second extends StatefulWidget {
 }
 
 class _secondState extends State<second> {
+  controller c=Provider.of(context);
+  c.
   TextEditingController t1 = TextEditingController();
   TextEditingController t2 = TextEditingController();
   TextEditingController t3 = TextEditingController();
@@ -18,6 +22,7 @@ class _secondState extends State<second> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Center(
           child: Container(
@@ -64,7 +69,9 @@ class _secondState extends State<second> {
           ),
           CupertinoButton(
             child: Text("Submit",style: TextStyle(color: Colors.amberAccent),),
-            onPressed: () {},
+            onPressed: () {
+
+            },
           )
         ]),
       )),
