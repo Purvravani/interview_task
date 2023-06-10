@@ -66,7 +66,7 @@ class _secondState extends State<second> {
             ),
           ),
           CupertinoButton(
-            child: Text("Submit",style: TextStyle(color: Colors.amberAccent),),
+            child:const Text("Submit",style: TextStyle(color: Colors.amberAccent),),
             onPressed: () {
 
             },
