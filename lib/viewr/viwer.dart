@@ -39,11 +39,11 @@ class _secondState extends State<second> {
                 confirmText: t3.text,
                 context: context,
                 initialDate: DateTime.now(),
-                firstDate: DateTime(2015),
+                firstDate: DateTime(1998),
                 lastDate: DateTime(2025),
               ).then((selectedDate) {
                 if (selectedDate != null) {
-                  t3.text = DateFormat('yyyy-MM-dd').format(selectedDate);
+                  t3.text = DateFormat('dd-MM-yyyy').format(selectedDate);
                 }
               });
             },
