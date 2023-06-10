@@ -3,7 +3,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class demo {
-  Future<void> get_data() async {
+List l=[];
+  Future<Database> get_data() async {
 // Get a location using getDatabasesPath
     var databasesPath = await getDatabasesPath();
     String path = join(databasesPath, 'purv.db');
@@ -18,6 +19,18 @@ class demo {
       await db.execute(
           'CREATE TABLE contact_book (id INTEGER PRIMARY KEY, name TEXT, contact TEXT,DOB TEXT,pass TEXT,cpss TEXT )');
     });
+    return database;
+  }
+  add_contact(String name,String email,String dob,String pass,String cpass)
+  {
+    get_data().then((value) {
+      String qry="insert into contact_book values('$name','$email','$dob','$pass','$cpass')";
+      value.rawInsert(qry);
+    });
+
+
+
+
   }
 
 }
