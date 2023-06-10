@@ -21,7 +21,9 @@ class _Task_1State extends State<Task_1> with SingleTickerProviderStateMixin {
         bottom: TabBar(tabs: [
           Tab(
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Task_1();
+                },
                 icon: Icon(Icons.verified_user_outlined),
               )),
           Tab(
@@ -34,7 +36,9 @@ class _Task_1State extends State<Task_1> with SingleTickerProviderStateMixin {
           ),
           Tab(
             child: IconButton(
-                onPressed: () {}, icon: Icon(Icons.supervised_user_circle)),
+                onPressed: () {
+                  Third();
+                }, icon: Icon(Icons.supervised_user_circle)),
           )
         ]),
       ),

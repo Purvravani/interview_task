@@ -10,6 +10,6 @@ class Third extends StatefulWidget {
 class _ThirdState extends State<Third> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Placeholder();
   }
 }

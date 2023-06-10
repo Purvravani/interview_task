@@ -28,15 +28,15 @@ class _secondState extends State<second> {
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.blue.shade400,border: Border.all()),
         width: 350,
         child: Column(children: [
-          TextField(
+          TextField(cursorColor: Colors.white,
             controller: t1,
             decoration: InputDecoration(labelText: "Enter name"),
           ),
           TextField(
-            controller: t2,
+            controller: t2,cursorColor: Colors.white,
             decoration: InputDecoration(labelText: "Enter email"),
           ),
-          TextField(
+          TextField(cursorColor: Colors.white,
             onTap: () async {
               await showDatePicker(
                 confirmText: t3.text,
@@ -54,13 +54,13 @@ class _secondState extends State<second> {
             decoration: InputDecoration(labelText: "Enter DOB"),
           ),
           Container(margin: EdgeInsets.all(5),
-            child: TextField(
+            child: TextField(cursorColor: Colors.white,
               controller: t4,
               decoration: InputDecoration(labelText: "Enter passwd"),
             ),
           ),
           Container(
-            child: TextField(
+            child: TextField(cursorColor: Colors.white,
               controller: t5,
               decoration: InputDecoration(border: OutlineInputBorder(),labelText: "Enter confirm Passwd"),
             ),
