@@ -17,4 +17,8 @@ class Controller extends ChangeNotifier {
 
     notifyListeners();
   }
+  get_http1()
+  {
+
+  }
 }
