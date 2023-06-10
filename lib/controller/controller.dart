@@ -1,24 +1,34 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
 
-class Controller extends ChangeNotifier {
-  List l = [];
+class demo {
+List l=[];
+  Future<Database> get_data() async {
+// Get a location using getDatabasesPath
+    var databasesPath = await getDatabasesPath();
+    String path = join(databasesPath, 'purv.db');
 
-  gethttp(
-      String name, String email, String dob, String pass, String cpass) async {
-    var url = Uri.parse('https://purv1.000webhostapp.com/add_contact.php');
-    var response = await http.post(url, body: [
-      {'name': '$name', 'email': '$email', 'dob': '$dob','pass':'$pass','cpass':'$cpass'}
-    ]);
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
+// Delete the database
+    await deleteDatabase(path);
 
-    notifyListeners();
+// open the database
+    Database database = await openDatabase(path, version: 1,
+        onCreate: (Database db, int version) async {
+      // When creating the db, create the table
+      await db.execute(
+          'CREATE TABLE contact_book (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, contact TEXT,DOB TEXT,pass TEXT,cpss TEXT )');
+    });
+    return database;
   }
-  get_http1()
-  {
-
+ Future add_contact(String name,String email,String dob,String pass,String cpass)
+ async {
+    get_data().then((value) {
+      String qry="insert into contact_book values(null'$name','$email','$dob','$pass','$cpass')";
+      value.rawInsert(qry).then((value) {
+        print("value:$value");
+      });
+    });
   }
+
 }

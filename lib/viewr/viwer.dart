@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:interview_task/viewr/Third.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 import '../controller/controller.dart';
 
@@ -23,9 +22,7 @@ class _secondState extends State<second> {
 
   @override
   Widget build(BuildContext context) {
-    Controller c=Provider.of(context);
-
-
+    demo d = demo();
     return Scaffold(
       body: Center(
           child: Container(
@@ -92,7 +89,10 @@ class _secondState extends State<second> {
               String dob = t3.text;
               String pass = t4.text;
               String cpass = t5.text;
-              c.gethttp(name, email, dob, pass, cpass);
+              d.add_contact(name, email, dob, pass, cpass).then((value) {
+                print("id=$value");
+              });
+              setState(() {});
             },
           )
         ]),
