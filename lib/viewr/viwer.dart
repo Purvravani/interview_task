@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:interview_task/viewr/Third.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 import '../controller/controller.dart';
 
@@ -20,14 +21,10 @@ class _secondState extends State<second> {
   TextEditingController t3 = TextEditingController();
   TextEditingController t4 = TextEditingController();
   TextEditingController t5 = TextEditingController();
-
-
-
-
   @override
   Widget build(BuildContext context) {
-    demo d=Provider.of(context);
-    return Scaffold(
+demo d=Get.put(demo());
+      return Scaffold(
       body: Center(
           child: Container(
         height: 350 - 7 + 14 + 20,

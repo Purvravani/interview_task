@@ -1,10 +1,11 @@
-import 'package:flutter/foundation.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-class demo extends ChangeNotifier {
+class demo extends GetxController {
  bool ?temp;
- List list=[];
+ RxList list=[].obs;
   Future<Database> get_data() async {
 // Get a location using getDatabasesPath
     var databasesPath = await getDatabasesPath();
@@ -20,7 +21,6 @@ class demo extends ChangeNotifier {
       await db.execute(
           'CREATE TABLE contact_book (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, contact TEXT,DOB TEXT,pass TEXT,cpss TEXT )');
     });
-    notifyListeners();
     return database;
   }
   Future get_contact()
@@ -29,11 +29,10 @@ async  {
     get_data().then((value) {
       String qur="select * from contact_book";
       value.rawQuery(qur).then((value) {
-        list=value;
+        list.value=value;
         temp=true;
       });
     });
-    notifyListeners();
 
   }
  Future add_contact(String name,String email,String dob,String pass,String cpass)
@@ -43,11 +42,11 @@ async  {
       value.rawInsert(qry);
       if(value==1)
         {
-          list==value;
+          get_contact();
+          print(value);
         }
-      print(value);
+
     });
-    notifyListeners();
   }
 
 
