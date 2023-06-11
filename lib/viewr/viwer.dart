@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:interview_task/viewr/Third.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../controller/controller.dart';
 
@@ -20,9 +21,12 @@ class _secondState extends State<second> {
   TextEditingController t4 = TextEditingController();
   TextEditingController t5 = TextEditingController();
 
+
+
+
   @override
   Widget build(BuildContext context) {
-    demo d = demo();
+    demo d=Provider.of(context);
     return Scaffold(
       body: Center(
           child: Container(
@@ -89,10 +93,8 @@ class _secondState extends State<second> {
               String dob = t3.text;
               String pass = t4.text;
               String cpass = t5.text;
-              d.add_contact(name, email, dob, pass, cpass).then((value) {
-                print("id=$value");
-              });
-              setState(() {});
+              d.add_contact(name, email, dob, pass, cpass);
+              print(d.list);
             },
           )
         ]),
