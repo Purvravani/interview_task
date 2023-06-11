@@ -12,7 +12,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
   );
   runApp(
-
        MaterialApp(
           home: ChangeNotifierProvider(
             create: (context) => demo(),
