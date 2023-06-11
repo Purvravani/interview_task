@@ -39,6 +39,7 @@ dependencies:
   intl:
   sqflite:
   http:
+  get:
   firebase_core: ^2.13.1
 
 dev_dependencies:
