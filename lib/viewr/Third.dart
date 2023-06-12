@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:interview_task/controller/controller.dart';
 
@@ -19,14 +18,14 @@ class _ThirdState extends State<Third> {
         body: Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), color: Colors.blue.shade400),
-      height: 1.sh,
-      width: 1.sw,
+      height: double.infinity,
+      width: double.infinity ,
       child: ListView.builder(
         itemBuilder: (context, index) {
           return Obx(() => Container(
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                child: ListTile(title: Text("${d.list[index]}")),
+                child: ListTile(title: Text("${d.list.value[index]}")),
               ));
         },
       ),
